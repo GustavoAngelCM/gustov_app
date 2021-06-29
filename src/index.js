@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+import { ApolloProvider } from '@apollo/client';
+import { CLIENT_APOLLO } from './config/ApolloClient';
+import RouterMain from './routes/RouterMain';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <React.Fragment>
+    <ApolloProvider client={CLIENT_APOLLO}>
+      <RouterMain/>
+    </ApolloProvider>
+  </React.Fragment>,
   document.getElementById('root')
 );
 
